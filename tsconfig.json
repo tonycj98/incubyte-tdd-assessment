@@ -10,7 +10,7 @@
     // Environment Settings
     // See also https://aka.ms/tsconfig/module
     "module": "nodenext",
-    "types": [],
+    "types": ["vitest/globals"],
 
     // Style Options
     // "noImplicitReturns": true,
