@@ -18,4 +18,8 @@ describe('incubyte-tdd-assessment: Kata 1: String Calculator', () => {
   it('test 03: should return the number itself for a single number string', () => {
     expect(add('1')).toBe(1)
   })
+
+  it('test 04: should return the sum of two numbers in a string', () => {
+    expect(add('1,2')).toBe(3)
+  })
 })
