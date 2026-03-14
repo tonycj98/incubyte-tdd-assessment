@@ -1,0 +1,26 @@
+{
+  "name": "incubyte-tdd-assessment",
+  "version": "1.0.0",
+  "packageManager": "pnpm@10.30.3",
+  "description": "Incubyte TDD Assessment",
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "check": "eslint . && tsc --noEmit",
+    "check:fix": "eslint . --fix && tsc --noEmit",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^7.7.2",
+    "eslint": "^10.0.3",
+    "eslint-plugin-format": "^2.0.1",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  }
+}
