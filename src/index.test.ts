@@ -14,4 +14,8 @@ describe('incubyte-tdd-assessment: Kata 1: String Calculator', () => {
   it('test 02: should return zero for an empty string', () => {
     expect(add('')).toBe(0)
   })
+
+  it('test 03: should return the number itself for a single number string', () => {
+    expect(add('1')).toBe(1)
+  })
 })
