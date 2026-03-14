@@ -1,3 +1,3 @@
-export function add(numbers: string): number {
+// export function add(numbers: string): number {
 
-}
+// }
