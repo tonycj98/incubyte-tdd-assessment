@@ -3,7 +3,15 @@ import { add } from './index.js'
 
 describe('incubyte-tdd-assessment: Kata 1: String Calculator', () => {
   // my bad 😐, I forgot to make this test fail before creating the function signature. Let me do that now
+  /**
+   * This test looks simple but it will confirm that there are no issues in the setup,
+   * in ui testing this is similar to just render the ui without any assertions.
+   */
   it('test 01: should export and import the function without errors', () => {
     expect(typeof add).toBe('function')
+  })
+
+  it('test 02: should return zero for an empty string', () => {
+    expect(add('')).toBe(0)
   })
 })
