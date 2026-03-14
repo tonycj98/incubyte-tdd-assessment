@@ -3,6 +3,9 @@
   "prettier.enable": false,
   "editor.formatOnSave": false,
 
+  "editor.tabSize": 2,
+  "editor.indentSize": "tabSize",
+
   // Auto fix
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit",
