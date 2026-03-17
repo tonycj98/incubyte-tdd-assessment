@@ -44,4 +44,9 @@ describe('incubyte-tdd-assessment: Kata 1: String Calculator', () => {
     expect(() => add('1,-2,3,-4')).toThrow('negative numbers not allowed: -2,-4')
     expect(() => add('//;\n1;-2;3;-4')).toThrow('negative numbers not allowed: -2,-4')
   })
+
+  it('test 10: should ignore numbers bigger than 1000', () => {
+    expect(add('1,2,1001')).toBe(3)
+    expect(add('//;\n1;2;1001')).toBe(3)
+  })
 })
