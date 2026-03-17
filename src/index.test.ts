@@ -49,4 +49,10 @@ describe('incubyte-tdd-assessment: Kata 1: String Calculator', () => {
     expect(add('1,2,1001')).toBe(3)
     expect(add('//;\n1;2;1001')).toBe(3)
   })
+
+  it('test 11: should support delimiters of any length of format: "//[delimiter]\\n"', () => {
+    expect(add('//[***]\n1***2***3')).toBe(6)
+    expect(add('//[***]\n1***2***-3')).toThrow('negative numbers not allowed: -3')
+    expect(add('//[***]\n1***2***1001')).toBe(3)
+  })
 })
