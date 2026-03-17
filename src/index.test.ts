@@ -30,4 +30,8 @@ describe('incubyte-tdd-assessment: Kata 1: String Calculator', () => {
   it('test 06: should handle new lines between numbers (instead of commas)', () => {
     expect(add('1\n2,3')).toBe(6)
   })
+
+  it('test 07: should support different delimiters of pattern: "//[delimiter]\\n[numbers…]"', () => {
+    expect(add('//;\n1;2')).toBe(3)
+  })
 })
