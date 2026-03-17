@@ -34,4 +34,9 @@ describe('incubyte-tdd-assessment: Kata 1: String Calculator', () => {
   it('test 07: should support different delimiters of pattern: "//[delimiter]\\n[numbers…]"', () => {
     expect(add('//;\n1;2')).toBe(3)
   })
+
+  it('test 08: should throw an exception when called with a negative number', () => {
+    expect(() => add('1,2,-3,4')).toThrow('negative numbers not allowed: -3')
+    expect(() => add('//;\n1;2;-3;4')).toThrow('negative numbers not allowed: -3')
+  })
 })
