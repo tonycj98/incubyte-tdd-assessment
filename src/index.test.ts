@@ -61,4 +61,10 @@ describe('incubyte-tdd-assessment: Kata 1: String Calculator', () => {
     expect(() => add('//[*][%]\n1*2%-3')).toThrow('negative numbers not allowed: -3')
     expect(add('//[*][%]\n1*2%1001')).toBe(3)
   })
+
+  it('test 13: should support multiple delimiters with length longer than one char of format: "//[delim1][delim2]\\n"', () => {
+    expect(add('//[***][%%%]\n1***2%%%3')).toBe(6)
+    expect(() => add('//[***][%%%]\n1***2%%%-3')).toThrow('negative numbers not allowed: -3')
+    expect(add('//[***][%%%]\n1***2%%%1001')).toBe(3)
+  })
 })
