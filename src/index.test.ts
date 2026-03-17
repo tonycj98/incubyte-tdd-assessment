@@ -22,4 +22,8 @@ describe('incubyte-tdd-assessment: Kata 1: String Calculator', () => {
   it('test 04: should return the sum of two numbers in a string', () => {
     expect(add('1,2')).toBe(3)
   })
+
+  it('test 05: should return the sum of multiple numbers in a string', () => {
+    expect(add('1,2,3')).toBe(6)
+  })
 })
