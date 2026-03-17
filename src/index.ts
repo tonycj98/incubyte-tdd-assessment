@@ -1,4 +1,9 @@
 const DELIMITER_PATTERN = /[,\n]+/
+const ESCAPE_REGEX = /[-/\\^$*+?.()|[\]{}]/g
+
+function escapeRegExp(input: string): string {
+  return input.replace(ESCAPE_REGEX, '\\$&')
+}
 
 export function reducerFn(sum: number, num: string, negativeNumbers: number[]): number {
   const parsedNum = Number.parseInt(num, 10)
@@ -17,7 +22,7 @@ export function add(numbers: string): number {
     return 0
   }
 
-  let delimiter: RegExp | string = DELIMITER_PATTERN
+  let delimiter: RegExp = DELIMITER_PATTERN
   let numbersToSum = numbers
   const negativeNumbers: number[] = []
 
@@ -25,10 +30,16 @@ export function add(numbers: string): number {
     const newlineIndex = numbers.indexOf('\n')
     const delimiterPattern = numbers.substring(2, newlineIndex)
     if (delimiterPattern.startsWith('[') && delimiterPattern.endsWith(']')) {
-      delimiter = delimiterPattern.slice(1, -1)
+      delimiter = new RegExp(
+        delimiterPattern
+          .slice(1, -1)
+          .split('][')
+          .map(d => escapeRegExp(d))
+          .join('|'),
+      )
     }
     else {
-      delimiter = delimiterPattern
+      delimiter = new RegExp(escapeRegExp(delimiterPattern))
     }
     numbersToSum = numbers.substring(newlineIndex + 1)
   }
