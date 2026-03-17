@@ -3,9 +3,5 @@ export function add(numbers: string): number {
     return 0
   }
 
-  const numsArray = numbers.split(',')
-
-  const numSum = Number.parseInt(numsArray[0] ?? '0', 10) + Number.parseInt(numsArray[1] ?? '0', 10)
-
-  return numSum
+  return numbers.split(',').reduce((sum, num) => sum + Number.parseInt(num, 10), 0)
 }
