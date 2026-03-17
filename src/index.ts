@@ -5,7 +5,8 @@ export function reducerFn(sum: number, num: string, negativeNumbers: number[]): 
   if (parsedNum < 0) {
     negativeNumbers.push(parsedNum)
     return sum
-  } else if (parsedNum > 1000) {
+  }
+  else if (parsedNum > 1000) {
     return sum
   }
   return sum + parsedNum
@@ -16,13 +17,19 @@ export function add(numbers: string): number {
     return 0
   }
 
-  let delimiter = DELIMITER_PATTERN
+  let delimiter: RegExp | string = DELIMITER_PATTERN
   let numbersToSum = numbers
   const negativeNumbers: number[] = []
-  
+
   if (numbers.startsWith('//')) {
     const newlineIndex = numbers.indexOf('\n')
-    delimiter = new RegExp(numbers.substring(2, newlineIndex))
+    const delimiterPattern = numbers.substring(2, newlineIndex)
+    if (delimiterPattern.startsWith('[') && delimiterPattern.endsWith(']')) {
+      delimiter = delimiterPattern.slice(1, -1)
+    }
+    else {
+      delimiter = delimiterPattern
+    }
     numbersToSum = numbers.substring(newlineIndex + 1)
   }
 
