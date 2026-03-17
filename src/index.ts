@@ -5,6 +5,8 @@ export function reducerFn(sum: number, num: string, negativeNumbers: number[]): 
   if (parsedNum < 0) {
     negativeNumbers.push(parsedNum)
     return sum
+  } else if (parsedNum > 1000) {
+    return sum
   }
   return sum + parsedNum
 }
